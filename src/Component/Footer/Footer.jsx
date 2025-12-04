@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <div className="w-full bg-[#1e1e1e]">
-      <footer className="bg-[#281824] max-w-[1440px] mx-auto text-white pt-20 pb-24">
+      <footer className="bg-[#281824] rounded-t-4xl max-w-[1440px] mx-auto text-white pt-20 pb-24">
         <div className="px-6 lg:px-12">
           
           {/* Top 3 Columns */}
