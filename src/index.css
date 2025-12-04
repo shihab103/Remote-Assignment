@@ -2,9 +2,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-.active {
-  text-decoration: underline;
-}
 body {
   font-family: "Alexandria", sans-serif;
   font-optical-sizing: auto;

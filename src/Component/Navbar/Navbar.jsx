@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { HeartIcon } from "@heroicons/react/24/outline"; // অথবা solid
+import logo from "/logo.png";
 
 export default function Navbar() {
   const { user, logOut, loading } = useContext(AuthContext);
@@ -19,11 +21,15 @@ export default function Navbar() {
 
   const links = (
     <div className="flex gap-3">
-      <NavLink to="/">Home</NavLink>
+      <NavLink to="/">Buy</NavLink>
+      <NavLink to="/">Rent</NavLink>
+      <NavLink to="/">Sell</NavLink>
+      <NavLink to="/">Agents</NavLink>
+      <NavLink to="/">Blogs</NavLink>
+      <NavLink to="/">Contact Us</NavLink>
     </div>
   );
 
-  // 🔹 Loading হলে কিছু না দেখাও বা spinner দেখাতে পারো
   if (loading) return null;
 
   return (
@@ -55,9 +61,13 @@ export default function Navbar() {
           </ul>
         </div>
 
-        <button onClick={()=>navigate('/')} className="btn btn-ghost text-xl">
-          SRS
-        </button>
+        <div
+          onClick={() => navigate("/")}
+          className="flex items-center gap-2 text-[#6c0443] text-2xl cursor-pointer font-semibold"
+        >
+          <img src={logo} alt="" />
+          WiztecBD
+        </div>
       </div>
 
       {/* Desktop Links */}
@@ -67,27 +77,13 @@ export default function Navbar() {
 
       {/* Navbar End */}
       <div className="navbar-end flex items-center gap-2">
+        <div className="flex items-center gap-1">
+          <HeartIcon className="w-5 h-5" />
+          <h1>Favourite</h1>
+        </div>
+
         {user ? (
           <div className="flex items-center gap-2">
-            {/* User Photo */}
-            <img
-              src={
-                user.photoURL ||
-                "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y"
-              }
-              alt={user.displayName || "User Avatar"}
-              className="w-8 h-8 rounded-full object-cover"
-              onError={(e) =>
-                (e.currentTarget.src =
-                  "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y")
-              }
-            />
-            {/* User Name */}
-            {user.displayName && (
-              <span className="font-medium text-gray-700">
-                {user.displayName}
-              </span>
-            )}
             <button onClick={handleLogOut} className="btn">
               Log Out
             </button>
