@@ -1,6 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap");
 @import "tailwindcss";
 @plugin "daisyui";
 
-.active{
-    text-decoration: underline;
+.active {
+  text-decoration: underline;
+}
+body {
+  font-family: "Alexandria", sans-serif;
+  font-optical-sizing: auto;
 }
